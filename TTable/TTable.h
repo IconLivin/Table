@@ -4,8 +4,8 @@
 template <class TKey,class TVal>
 class TTable {
 protected:
-	int DataCount;//число элементов
-	int Eff;//эффективность
+	int DataCount;//С‡РёСЃР»Рѕ Р·РІРµРЅСЊРµРІ
+	int Eff;//РєРѕСЌС„С„РёС†РёРµРЅС‚ СЌС„С„РµРєС‚РёРІРЅРѕСЃС‚Рё
 public:
 	TTable() { DataCount = 0; Eff = 0; }
 	virtual ~TTable() {};
