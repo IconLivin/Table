@@ -89,7 +89,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -153,10 +153,11 @@
   <ItemGroup>
     <ClInclude Include="TArrayTable.h" />
     <ClInclude Include="TRecord.h" />
+    <ClInclude Include="TScanTable.h" />
     <ClInclude Include="TTable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TTable.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

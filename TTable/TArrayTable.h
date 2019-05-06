@@ -2,26 +2,27 @@
 #include "TTable.h"
 
 template <class TKey,class TVal>
-class TArrayTable :public TTable<TKey, TVal> {
+class TArrayTable : public TTable<TKey,TVal> {
 protected:
-	TRecord<TKey,TVal> *arr;
+	TRecord<TKey, TVal> *arr;
 	int Max_Size;
 	int Curr;
 public:
-	TArrayTable(int MS) { Max_Size = MS; arr = new TRecord[Max_Size]; curr = -1; }
+	TArrayTable(int MS = 10) { DataCount = 5; Max_Size = MS; arr = new TRecord<TKey, TVal>[Max_Size]; Curr = -1; }
 	~TArrayTable() { delete[] arr; }
+
 	TArrayTable(TArrayTable &tb);
 	bool IsFull();
 	void Reset();
 	void GoNext();
 	bool IsEnd();
-	TRecord GetCurr();
+	TRecord<TKey,TVal> GetCurr();
 };
 
 template<class TKey,class TVal>
 TArrayTable<TKey, TVal>::TArrayTable(TArrayTable &tb) {
 	Max_Size = tb.Max_Size;
-	arr = new arr[Max_Size];
+	arr = new TRecord<TKey, TVal>[Max_Size];
 	DataCount = tb.DataCount;
 	Curr = tb.Curr;
 	for (int i = 0; i < Max_Size; i++)arr[i] = tb.arr[i];
@@ -42,4 +43,4 @@ template<class TKey, class TVal>
 bool TArrayTable<TKey, TVal>::IsEnd() { return Curr == DataCount; }
 
 template<class TKey, class TVal>
-TRecord<TKey,TVal> TArrayTable<TKey, TVal>::GetCurr() { return arr[curr]; }
+TRecord<TKey,TVal> TArrayTable<TKey, TVal>::GetCurr() { return arr[Curr]; }
