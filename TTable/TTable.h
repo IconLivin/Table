@@ -3,9 +3,10 @@
 
 template <class TKey,class TVal>
 class TTable {
+protected:
+	int DataCount;//С‡РёСЃР»Рѕ Р·РІРµРЅСЊРµРІ
+	int Eff;//РєРѕСЌС„С„РёС†РёРµРЅС‚ СЌС„С„РµРєС‚РёРІРЅРѕСЃС‚Рё
 public:
-	int DataCount;//число элементов
-	int Eff;//эффективность
 	TTable() { DataCount = 0; Eff = 0; }
 	virtual ~TTable() {};
 	int GetDataCount() { return DataCount; }
