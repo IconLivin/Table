@@ -4,19 +4,20 @@
 template <class TKey,class TVal>
 class TArrayTable : public TTable<TKey,TVal> {
 protected:
-	TRecord<TKey, TVal> *arr;
 	int Max_Size;
 	int Curr;
 public:
-	TArrayTable(int MS = 10) { DataCount = 5; Max_Size = MS; arr = new TRecord<TKey, TVal>[Max_Size]; Curr = -1; }
+	TArrayTable(int MS = 10) { Max_Size = MS; arr = new TRecord<TKey, TVal>[Max_Size]; Curr = -1; }
 	~TArrayTable() { delete[] arr; }
-
+	TRecord<TKey, TVal> *arr;
 	TArrayTable(TArrayTable &tb);
 	bool IsFull();
 	void Reset();
 	void GoNext();
 	bool IsEnd();
+	int GetCurrPos() { return Curr; }
 	TRecord<TKey,TVal> GetCurr();
+	int GetMS() { return Max_Size; }
 };
 
 template<class TKey,class TVal>
