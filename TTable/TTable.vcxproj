@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="TArrayTable.h" />
+    <ClInclude Include="THashTable.h" />
     <ClInclude Include="TRecord.h" />
     <ClInclude Include="TScanTable.h" />
     <ClInclude Include="TSortTable.h" />
