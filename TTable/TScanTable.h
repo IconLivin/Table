@@ -61,6 +61,8 @@ void TScanTable<TKey, TVal>::Fill(char *s) {
 
 template <class TKey, class TVal>
 void TScanTable<TKey, TVal>::Print() {
+	cout << "Scan Table" << endl;
+	cout << "----------------------------------------" << endl;
 	for (int i = 0; i < DataCount; i++)
 		cout << arr[i].key << " " << arr[i].val << endl;
 }

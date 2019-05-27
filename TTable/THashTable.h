@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include "TTable.h"
+using namespace std;
 
 template <class TKey,class TVal>
 class THashTable :public TTable<TKey, TVal> {
@@ -24,6 +25,8 @@ public:
 	bool Insert(TRecord<TKey, TVal> rec);
 	bool DeleteKey(TKey);
 	TRecord<TKey, TVal> GetCurr() { return arr[Curr];}
+	void Print();
+	void Fill(char *s);
 };
 
 template <class TKey,class TVal>
@@ -98,7 +101,7 @@ bool  THashTable<TKey, TVal>::Find(TKey key) {
 	for (int i = 0; i < MaxSize; i++)
 	{
 		Eff++;
-		if (arr[Curr].key == Curr)return true;
+		if (arr[Curr].key == key)return true;
 		else if (arr[Curr].key == 0) {
 			if (fPos != -1)Curr = fPos;
 			return false;
@@ -127,5 +130,27 @@ bool  THashTable<TKey, TVal>::DeleteKey(TKey key) {
 		arr[Curr].key = -1;
 		DataCount--;
 		return true;
+	}
+}
+
+template <class TKey, class TVal>
+void THashTable<TKey, TVal>::Fill(char *s) {
+	ifstream ifs(s);
+	TRecord<TKey, TVal> tmp1;
+	while (!ifs.eof()) {
+		ifs >> tmp1.key >> tmp1.val;
+		Insert(tmp1);
+	}
+}
+
+template <class TKey, class TVal>
+void THashTable<TKey, TVal>::Print() {
+	cout << "Hash Table" << endl;
+	cout << "----------------------------------------" << endl;
+	for (int i = 0; i < MaxSize; i++) {
+		if (arr[i].key != 0) {
+			if (arr[i].key != -1)
+				cout << arr[i].key << " " << arr[i].val << endl;
+		}
 	}
 }

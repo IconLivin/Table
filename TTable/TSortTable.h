@@ -20,7 +20,6 @@ public:
 
 template <class TKey, class TVal>
 TSortTable<TKey, TVal>::TSortTable(TScanTable<TKey, TVal> &tmp):TArrayTable<TKey,TVal>(tmp) {
-	Print();
 	Sort(0, DataCount-1);
 }
 
@@ -116,6 +115,7 @@ void TSortTable<TKey, TVal>::Fill(char *s) {
 
 template <class TKey, class TVal>
 void TSortTable<TKey, TVal>::Print() {
+	cout << "Sort Table" << endl;
 	cout << "----------------------------------------" << endl;
 	for (int i = 0; i < DataCount; i++)
 		cout << arr[i].key <<" "<< arr[i].val << endl;
