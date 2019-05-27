@@ -117,7 +117,7 @@ template <class TKey, class TVal>
 void TSortTable<TKey, TVal>::Print() {
 	cout << "Sort Table" << endl;
 	cout << "----------------------------------------" << endl;
-	for (int i = 0; i < DataCount; i++)
-		cout << arr[i].key <<" "<< arr[i].val << endl;
+	for (Reset();!IsEnd(); GoNext())
+		cout << arr[Curr].key <<" "<< arr[Curr].val << endl;
 }
 

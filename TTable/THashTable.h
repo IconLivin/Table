@@ -147,10 +147,10 @@ template <class TKey, class TVal>
 void THashTable<TKey, TVal>::Print() {
 	cout << "Hash Table" << endl;
 	cout << "----------------------------------------" << endl;
-	for (int i = 0; i < MaxSize; i++) {
-		if (arr[i].key != 0) {
-			if (arr[i].key != -1)
-				cout << arr[i].key << " " << arr[i].val << endl;
+	for (Reset(); !IsEnd(); GoNext()) {
+		if (arr[Curr].key != 0) {
+			if (arr[Curr].key != -1)
+				cout << arr[Curr].key << " " << arr[Curr].val << endl;
 		}
 	}
 }
