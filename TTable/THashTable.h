@@ -125,7 +125,7 @@ bool  THashTable<TKey, TVal>::Insert(TRecord<TKey, TVal> rec) {
 
 template <class TKey, class TVal>
 bool  THashTable<TKey, TVal>::DeleteKey(TKey key) {
-	if (!isEmpty() || !Find(key))return false;
+	if (isEmpty() || !Find(key))return false;
 	else {
 		arr[Curr].key = -1;
 		DataCount--;

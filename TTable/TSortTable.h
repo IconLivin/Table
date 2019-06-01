@@ -58,7 +58,7 @@ bool TSortTable<TKey, TVal>::Insert(TRecord<TKey, TVal> rec) {
 
 template <class TKey, class TVal>
 bool TSortTable<TKey, TVal>::DeleteKey(TKey key) {
-	if (!Find(key) || !isEmpty())return false;
+	if (!Find(key) || isEmpty())return false;
 	else {
 		for (int i = Curr; i < DataCount; i++) {
 			arr[i] = arr[i + 1];
